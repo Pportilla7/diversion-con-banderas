@@ -8,3 +8,20 @@ body {
 h1 {
   color: #333;
 }
+
+div{
+  
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+li{
+  border: black solid 0.5px;
+  padding-top: 10px;
+}
