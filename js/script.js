@@ -65,11 +65,40 @@ function crearListaHtml(){
 
         const img = document.createElement('img');
         img.src = pais.flags[1];
-        
-        li.appendChild(img);
+        img.addEventListener('click',()=>{
+            const ventana=document.createElement('ventana-emergente')
+            ventana.innerHTML = `
+                <div id="ventana-emergente">
+                    <button class="close-btn">Cerrar</button>
+                    <img src=${pais.flags[1]}></img>
+                    <p>Nombre: ${pais.name.official}</p>
+                    <p>Capital: ${pais.capital}</p>
+                    <p>Población: ${pais.population}</p>
+                    <p>Lado de la carretera: ${pais.car}</p>
+                </div>
+            `;
+            
+            console.log(ventana)
+            const closeBtn = ventana.querySelector('.close-btn');
+            closeBtn.addEventListener('click', () => {
+                ventana.remove();
+            });
 
+            countriesList.appendChild(ventana);
+        });
+        let parr_nombre=document.createElement('p');
+        parr_nombre.textContent=`${pais.name.official}`
+
+        li.appendChild(img);
+        li.appendChild(parr_nombre);
         ul.appendChild(li);
-    });
+    })
+
+    
+    
     countriesList.appendChild(ul);
 }
+
+
+  
 
